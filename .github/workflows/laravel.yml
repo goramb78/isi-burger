@@ -5,7 +5,7 @@ name: 🍔 ISI BURGER — CI/CD Pipeline
 
 on:
   push:
-    branches: [ "prenom_nom_burger", "main" ]
+    branches: [ "gora_thiam_burger", "main" ]
   pull_request:
     branches: [ "main" ]
 
