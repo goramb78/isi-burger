@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Storage;
 
 class BurgerController extends Controller
 {
-    // ─── Liste tous les burgers (avec archivés) ───────────────
+    //  Liste tous les burgers (avec archivés) 
     public function index(Request $request)
     {
         $query = Burger::with('category');
@@ -34,14 +34,14 @@ class BurgerController extends Controller
         return view('gestionnaire.burgers.index', compact('burgers', 'categories'));
     }
 
-    // ─── Formulaire de création ───────────────────────────────
+    //  Formulaire de création 
     public function create()
     {
         $categories = Category::all();
         return view('gestionnaire.burgers.create', compact('categories'));
     }
 
-    // ─── Enregistrer un nouveau burger ───────────────────────
+    //  Enregistrer un nouveau burger 
     public function store(Request $request)
     {
         $validated = $request->validate([
@@ -64,14 +64,14 @@ class BurgerController extends Controller
             ->with('success', 'Burger créé avec succès.');
     }
 
-    // ─── Formulaire d'édition ─────────────────────────────────
+    //  Formulaire d'édition 
     public function edit(Burger $burger)
     {
         $categories = Category::all();
         return view('gestionnaire.burgers.edit', compact('burger', 'categories'));
     }
 
-    // ─── Mettre à jour un burger ──────────────────────────────
+    //  Mettre à jour un burger 
     public function update(Request $request, Burger $burger)
     {
         $validated = $request->validate([
@@ -98,7 +98,7 @@ class BurgerController extends Controller
             ->with('success', 'Burger mis à jour avec succès.');
     }
 
-    // ─── Archiver / Désarchiver ───────────────────────────────
+    // Archiver / Désarchiver 
     public function toggleArchive(Burger $burger)
     {
         $burger->update(['archived' => !$burger->archived]);
@@ -107,7 +107,7 @@ class BurgerController extends Controller
         return back()->with('success', $msg);
     }
 
-    // ─── Supprimer un burger ──────────────────────────────────
+    //  Supprimer un burger 
     public function destroy(Burger $burger)
     {
         if ($burger->image) {

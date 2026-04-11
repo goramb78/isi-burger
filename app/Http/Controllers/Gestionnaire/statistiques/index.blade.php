@@ -139,7 +139,7 @@
 @push('scripts')
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 <script>
-// ── Graphique Commandes par Mois ──────────────────────────────────
+//  Graphique Commandes par Mois
 const ctxMois = document.getElementById('chartCommandes').getContext('2d');
 new Chart(ctxMois, {
     type: 'bar',
@@ -163,7 +163,7 @@ new Chart(ctxMois, {
     }
 });
 
-// ── Graphique Catégories ──────────────────────────────────────────
+//  Graphique Catégories 
 const ctxCat = document.getElementById('chartCategories').getContext('2d');
 new Chart(ctxCat, {
     type: 'doughnut',
