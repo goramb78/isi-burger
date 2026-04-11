@@ -16,7 +16,7 @@ class StatistiqueController extends Controller
     {
         $today = now()->toDateString();
 
-        // ── Stats journalières ─────────────────────────────────
+        //  Stats journalières 
         $commandesEnCours = Commande::whereDate('created_at', $today)
             ->whereIn('statut', ['en_attente', 'en_preparation'])
             ->count();
@@ -28,7 +28,7 @@ class StatistiqueController extends Controller
         $recettesJournalieres = Paiement::whereDate('date_paiement', $today)
             ->sum('montant');
 
-        // ── Commandes par mois (12 derniers mois) ─────────────
+        //  Commandes par mois (12 derniers mois) 
         $commandesParMois = Commande::select(
                 DB::raw('MONTH(created_at) as mois'),
                 DB::raw('YEAR(created_at) as annee'),
@@ -47,7 +47,7 @@ class StatistiqueController extends Controller
             $moisData[] = $found ? $found->total : 0;
         }
 
-        // ── Produits par catégorie (mois actuel) ───────────────
+        //  Produits par catégorie (mois actuel) 
         $categoriesData = Category::withCount([
             'burgers as commandes_count' => function ($q) {
                 $q->join('commande_items', 'burgers.id', '=', 'commande_items.burger_id')
@@ -60,7 +60,7 @@ class StatistiqueController extends Controller
         $categoriesLabels = $categoriesData->pluck('nom');
         $categoriesValues = $categoriesData->pluck('commandes_count');
 
-        // ── Totaux globaux ─────────────────────────────────────
+        //  Totaux globaux
         $totalCommandes = Commande::count();
         $totalRecettes  = Paiement::sum('montant');
         $totalBurgers   = Burger::where('archived', false)->count();

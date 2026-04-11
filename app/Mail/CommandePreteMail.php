@@ -38,7 +38,7 @@ class CommandePreteMail extends Mailable implements ShouldQueue
         );
     }
 
-    // ─── Pièce jointe : facture PDF ──────────────────────────
+    // Pièce jointe : facture PDF 
     public function attachments(): array
     {
         $pdf = Pdf::loadView('pdf.facture', ['commande' => $this->commande])

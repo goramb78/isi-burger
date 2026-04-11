@@ -9,7 +9,7 @@ use Barryvdh\DomPDF\Facade\Pdf;
 
 class FactureController extends Controller
 {
-    // ─── Télécharger la facture PDF ───────────────────────────
+    // Télécharger la facture PDF
     public function download(Commande $commande)
     {
         // Vérifier appartenance
@@ -30,7 +30,7 @@ class FactureController extends Controller
         return $pdf->download("facture-commande-{$commande->id}.pdf");
     }
 
-    // ─── Aperçu de la facture (gestionnaire) ─────────────────
+    //  Aperçu de la facture (gestionnaire) 
     public function preview(Commande $commande)
     {
         $commande->load(['user', 'items.burger', 'paiement']);

@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 
 class CatalogueController extends Controller
 {
-    // ─── Catalogue avec filtres ───────────────────────────────
+    //  Catalogue avec filtres 
     public function index(Request $request)
     {
         $query = Burger::with('category')->where('archived', false);
@@ -47,7 +47,7 @@ class CatalogueController extends Controller
         return view('client.catalogue.index', compact('burgers', 'categories'));
     }
 
-    // ─── Détail d'un burger ───────────────────────────────────
+    //  Détail d'un burger 
     public function show(Burger $burger)
     {
         abort_if($burger->archived, 404);

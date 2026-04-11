@@ -1,6 +1,6 @@
 {{-- resources/views/emails/confirmation.blade.php --}}
 <x-mail::message>
-# ✅ Commande confirmée !
+#  Commande confirmée !
 
 Bonjour **{{ $commande->user->name }}**,
 
@@ -8,7 +8,7 @@ Votre commande **#{{ str_pad($commande->id, 4, '0', STR_PAD_LEFT) }}** a bien é
 
 ---
 
-## 🛒 Récapitulatif
+##  Récapitulatif
 
 <x-mail::table>
 | Burger | Qté | Prix |

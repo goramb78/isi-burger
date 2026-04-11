@@ -1,6 +1,6 @@
 {{-- resources/views/emails/nouvelle-commande-gestionnaire.blade.php --}}
 <x-mail::message>
-# 🔔 Nouvelle commande reçue !
+#  Nouvelle commande reçue !
 
 Une nouvelle commande vient d'être passée sur **ISI BURGER**.
 
@@ -9,10 +9,10 @@ Une nouvelle commande vient d'être passée sur **ISI BURGER**.
 <x-mail::panel>
 **Commande #{{ str_pad($commande->id, 4, '0', STR_PAD_LEFT) }}**
 
-👤 Client : {{ $commande->user->name }} ({{ $commande->user->email }})  
-🕐 Date : {{ $commande->created_at->format('d/m/Y à H:i') }}  
-💰 Total : **{{ number_format($commande->total, 0, ',', ' ') }} FCFA**  
-📦 Statut : **En attente**
+ Client : {{ $commande->user->name }} ({{ $commande->user->email }})  
+ Date : {{ $commande->created_at->format('d/m/Y à H:i') }}  
+ Total : **{{ number_format($commande->total, 0, ',', ' ') }} FCFA**  
+ Statut : **En attente**
 </x-mail::panel>
 
 ## Articles commandés

@@ -9,7 +9,7 @@ est **prête** et vous attend.
 
 ---
 
-## 🧾 Facture
+##  Facture
 
 Votre facture est jointe en pièce jointe à cet email (PDF).
 
@@ -22,7 +22,7 @@ Votre facture est jointe en pièce jointe à cet email (PDF).
 </x-mail::table>
 
 <x-mail::panel>
-**💰 Montant total à payer : {{ number_format($commande->total, 0, ',', ' ') }} FCFA**
+** Montant total à payer : {{ number_format($commande->total, 0, ',', ' ') }} FCFA**
 
 Mode de paiement : Espèces (au comptoir)
 </x-mail::panel>

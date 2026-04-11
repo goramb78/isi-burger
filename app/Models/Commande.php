@@ -12,7 +12,7 @@ class Commande extends Model
 
     protected $fillable = ['user_id', 'statut', 'total', 'notes'];
 
-    // ─── Statuts ──────────────────────────────────────────────
+    //  Statuts 
     const STATUT_EN_ATTENTE    = 'en_attente';
     const STATUT_EN_PREPARATION = 'en_preparation';
     const STATUT_PRETE         = 'prete';
@@ -45,7 +45,7 @@ class Commande extends Model
         return in_array($this->statut, [self::STATUT_EN_ATTENTE, self::STATUT_EN_PREPARATION]);
     }
 
-    // ─── Relations ────────────────────────────────────────────
+    //  Relations 
     public function user()
     {
         return $this->belongsTo(User::class);

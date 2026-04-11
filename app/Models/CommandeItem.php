@@ -16,13 +16,13 @@ class CommandeItem extends Model
         'prix_unitaire' => 'decimal:2',
     ];
 
-    // ─── Helpers ──────────────────────────────────────────────
+    //  Helpers
     public function getSousTotalAttribute(): float
     {
         return $this->quantite * $this->prix_unitaire;
     }
 
-    // ─── Relations ────────────────────────────────────────────
+    //  Relations 
     public function commande()
     {
         return $this->belongsTo(Commande::class);

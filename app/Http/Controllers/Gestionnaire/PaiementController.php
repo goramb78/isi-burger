@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 
 class PaiementController extends Controller
 {
-    // ─── Enregistrer un paiement en espèces ──────────────────
+    //  Enregistrer un paiement en espèces 
     public function store(Request $request, Commande $commande)
     {
         // Vérifications

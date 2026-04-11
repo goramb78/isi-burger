@@ -17,7 +17,7 @@ class Paiement extends Model
         'montant'       => 'decimal:2',
     ];
 
-    // ─── Relations ────────────────────────────────────────────
+    //  Relations 
     public function commande()
     {
         return $this->belongsTo(Commande::class);

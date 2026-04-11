@@ -20,7 +20,7 @@ class NouvelleCommandeGestionnaireMail extends Mailable implements ShouldQueue
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: "🔔 Nouvelle commande #{$this->commande->id} reçue — ISI BURGER",
+            subject: " Nouvelle commande #{$this->commande->id} reçue — ISI BURGER",
         );
     }
 

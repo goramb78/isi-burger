@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Mail;
 
 class CommandeController extends Controller
 {
-    // ─── Mes commandes ────────────────────────────────────────
+    //  Mes commandes 
     public function index()
     {
         $commandes = auth()->user()
@@ -28,7 +28,7 @@ class CommandeController extends Controller
         return view('client.commandes.index', compact('commandes'));
     }
 
-    // ─── Détail d'une commande ────────────────────────────────
+    //  Détail d'une commande 
     public function show(Commande $commande)
     {
         // S'assurer que la commande appartient au client
@@ -38,7 +38,7 @@ class CommandeController extends Controller
         return view('client.commandes.show', compact('commande'));
     }
 
-    // ─── Formulaire de commande ───────────────────────────────
+    //  Formulaire de commande 
     public function create(Request $request)
     {
         // Récupérer les burgers sélectionnés
@@ -53,7 +53,7 @@ class CommandeController extends Controller
         return view('client.commandes.create', compact('burgers'));
     }
 
-    // ─── Passer la commande ───────────────────────────────────
+    //  Passer la commande 
     public function store(Request $request)
     {
         $request->validate([

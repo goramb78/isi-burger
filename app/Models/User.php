@@ -20,7 +20,7 @@ class User extends Authenticatable
         'password'          => 'hashed',
     ];
 
-    // ─── Helpers ──────────────────────────────────────────────
+    //  Helpers 
     public function isGestionnaire(): bool
     {
         return $this->role === 'gestionnaire';
@@ -31,7 +31,7 @@ class User extends Authenticatable
         return $this->role === 'client';
     }
 
-    // ─── Relations ────────────────────────────────────────────
+    //  Relations 
     public function commandes()
     {
         return $this->hasMany(Commande::class);

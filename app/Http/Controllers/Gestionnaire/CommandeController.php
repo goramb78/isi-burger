@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Mail;
 
 class CommandeController extends Controller
 {
-    // ─── Lister toutes les commandes ─────────────────────────
+    // Lister toutes les commandes
     public function index(Request $request)
     {
         $query = Commande::with(['user', 'items.burger', 'paiement'])->latest();
@@ -37,14 +37,14 @@ class CommandeController extends Controller
         return view('gestionnaire.commandes.index', compact('commandes', 'statuts'));
     }
 
-    // ─── Détails d'une commande ───────────────────────────────
+    //  Détails d'une commande 
     public function show(Commande $commande)
     {
         $commande->load(['user', 'items.burger.category', 'paiement']);
         return view('gestionnaire.commandes.show', compact('commande'));
     }
 
-    // ─── Changer le statut ────────────────────────────────────
+    //  Changer le statut 
     public function updateStatut(Request $request, Commande $commande)
     {
         $request->validate([
@@ -63,7 +63,7 @@ class CommandeController extends Controller
         return back()->with('success', 'Statut mis à jour : ' . $commande->statut_label);
     }
 
-    // ─── Annuler une commande ─────────────────────────────────
+    //  Annuler une commande 
     public function annuler(Commande $commande)
     {
         if (!$commande->peutEtreAnnulee()) {

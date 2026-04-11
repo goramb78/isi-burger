@@ -20,7 +20,7 @@ class Burger extends Model
         'prix'     => 'decimal:2',
     ];
 
-    // ─── Scopes ───────────────────────────────────────────────
+    //  Scopes 
     public function scopeActif($query)
     {
         return $query->where('archived', false)->where('stock', '>', 0);
@@ -31,7 +31,7 @@ class Burger extends Model
         return $query->where('archived', false);
     }
 
-    // ─── Helpers ──────────────────────────────────────────────
+    //  Helpers
     public function isEnRupture(): bool
     {
         return $this->stock <= 0;
@@ -44,7 +44,7 @@ class Burger extends Model
             : asset('images/default-burger.png');
     }
 
-    // ─── Relations ────────────────────────────────────────────
+    //  Relations 
     public function category()
     {
         return $this->belongsTo(Category::class);
